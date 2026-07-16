@@ -1,0 +1,685 @@
+.certificates-page {
+  padding-top: 80px;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+.certs-hero {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  padding: 6rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.certs-hero::before {
+  content: '🏆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30rem;
+  opacity: 0.03;
+}
+
+/* ============================================================
+   STATS SECTION
+   ============================================================ */
+
+.stats-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.cert-stats .stat-box {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all var(--transition-normal);
+}
+
+.cert-stats .stat-box:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+}
+
+.cert-stats .stat-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--accent-primary);
+  transition: all var(--transition-normal);
+}
+
+.cert-stats .stat-box:hover .stat-icon {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  transform: rotate(360deg);
+}
+
+.cert-stats .stat-number {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.cert-stats .stat-label {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   FILTER & SEARCH
+   ============================================================ */
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.category-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.filter-btn {
+  padding: 1rem 1.5rem;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-primary);
+  transform: translateX(5px);
+}
+
+.filter-btn.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--bg-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.filter-btn i {
+  font-size: 1.3rem;
+}
+
+.btn-text {
+  flex: 1;
+  text-align: left;
+}
+
+.btn-count {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.filter-btn.active .btn-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  transition: all var(--transition-normal);
+}
+
+.search-container:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+
+.search-container i {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+}
+
+.search-container input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.search-container input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   CERTIFICATES GRID
+   ============================================================ */
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.cert-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.cert-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+}
+
+.cert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.cert-card:hover .cert-image img {
+  transform: scale(1.1);
+}
+
+.cert-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 136, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--bg-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.cert-card:hover .cert-overlay {
+  opacity: 1;
+}
+
+.verified-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.cert-content {
+  padding: 1.5rem;
+}
+
+.cert-title {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.cert-issuer,
+.cert-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.cert-issuer i,
+.cert-date i {
+  color: var(--accent-primary);
+}
+
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.7rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   CERTIFICATE MODAL
+   ============================================================ */
+
+.cert-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: 2rem;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.cert-modal .modal-content {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+    overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+.cert-modal .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 45px;
+  height: 45px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal .modal-close:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  transform: rotate(90deg);
+}
+
+.cert-modal .modal-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+}
+
+.cert-modal .modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.verified-stamp {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.verified-stamp i {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.verified-stamp span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cert-modal .modal-body {
+  padding: 3rem;
+}
+
+.cert-modal h2 {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.cert-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-item i {
+  font-size: 2rem;
+  color: var(--accent-primary);
+}
+
+.info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.skills-section {
+  margin-bottom: 2.5rem;
+}
+
+.skills-section h3 {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-badge {
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.skill-badge:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.modal-actions .btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+
+.cert-cta {
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.cta-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+  text-align: center;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+}
+
+.cta-box h2 {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.cta-box p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   NO RESULTS
+   ============================================================ */
+
+.no-results {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--text-muted);
+}
+
+.no-results i {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  opacity: 0.3;
+}
+
+.no-results p {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+.cert-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.cert-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .category-buttons {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .certs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .certs-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .stats-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-modal .modal-body {
+    padding: 2rem;
+  }
+
+  .cert-info {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .cert-modal .modal-image {
+    height: 250px;
+  }
+
+  .cta-box {
+    padding: 3rem 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-modal h2 {
+    font-size: 1.8rem;
+  }
+
+  .verified-stamp {
+    width: 80px;
+    height: 80px;
+  }
+
+  .verified-stamp i {
+    font-size: 1.5rem;
+  }
+}
+
