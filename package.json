@@ -2,10 +2,14 @@
   "name": "moe-kyaw-aung-portfolio-2.1",
   "version": "2.1.0",
   "type": "module",
+  "description": "Senior Android Developer Portfolio - Moe Kyaw Aung",
+  "author": "Moe Kyaw Aung <moekyawaung@programmer.net>",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -13,8 +17,21 @@
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8"
-  }
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "android-developer",
+    "kotlin",
+    "jetpack-compose",
+    "web-developer"
+  ]
 }
-
