@@ -3,12 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
-    minify: 'terser'
-  }
-});
-
+  base: '/https://Dev-moe-kyawaung/moe-kyaw-aung-portfolio-2.1/'
+})
