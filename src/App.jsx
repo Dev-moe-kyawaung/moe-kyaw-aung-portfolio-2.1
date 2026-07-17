@@ -30,10 +30,9 @@ function App() {
     }
     
  import Certificates from "./pages/Certificates";
- import GitHubRepos from "./pages/GitHubRepos";
- import LovableApps from "./pages/LovableApps";
-import EmailCollection from "./pages/EmailCollection";
- import Contact from "./pages/Contact";
+      ^
+  import GitHubRepos from "./pages/GitHubRepos";   
+    import LovableApps from "./pages/LovableApps"
     // Simulate loading time
     setTimeout(() => setLoading(false), 2500);
   }, []);
